@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width"> 
+		<link rel="icon" type="image/svg+xml" href="/Logo.png">
+		<meta name="generator" content="Astro v1.4.2">
+		<title>Contacto</title>
+	<link rel="stylesheet" href="/assets/contacto-fotografia-index-proyecto-sobremi-video.b183e49a.css" /></head>
+	<body>
+		<nav class="navbar navbar-expand-lg bg-light fixed-top">
+			<div class="container-fluid">
+			  <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="/"><img src="/Logo.jpg" width="52px" height="52px"></a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+
+			 
+			  <div class="collapse navbar-collapse justify-content-start" style="color: #1c1c1c">
+				<ul class="navbar-nav">
+				  <li class="nav-item">
+					<a class="nav-link" aria-current="page" href="sobremi" style="margin-right:10px;">Sobre mí</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="contacto" style="margin-right:10px;">Contacto</a>
+				  </li>
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right:10px;">
+					  Portafolio 
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <li><a class="dropdown-item" href="fotografia">Fotografía</a></li>
+					  <li><a class="dropdown-item" href="video">Vídeo</a></li>
+					  <li><hr class="dropdown-divider"></li>
+					  <li><a class="dropdown-item" href="proyecto">Proyecto</a></li>
+					</ul>
+				  </li>
+				</ul>
+			  </div>
+
+			  <div class="collapse navbar-collapse justify-content-end">
+					<a class="navbar-brand" href="https://www.instagram.com/claudia.9mj/">
+						<img src="/InstaN.jpg" alt="Instagram" width="20px" height="20px">
+				    </a>
+					<a class="navbar-brand" href="https://www.youtube.com/channel/UCyAS1DkmuhMzQ2-60pALGDQ">
+						<img src="/YouTubeN.jpg" alt="YouTube" width="20px" height="20px">
+				    </a>
+			  </div>
+
+			</div>
+		  </nav>
+		<main class="bg-3">
+		<section class="container-fluid text-center bg-1"> 
+			<div style="padding-top:80px; padding-bottom: 20px; color:#f4f4f4;">
+				<h2 style="padding-bottom:20px;">Contacto</h2>
+			<p> Escribe aquí tu mensaje. </p>
+			<p>Para consultas comerciales y entrevistas, o si usted es una marca, 
+			<br>un artista, alguien que quiere una sesión de fotos, crear un vídeo o
+			<br>simplemente quiere saludar, no dude en utilizar el formulario de contacto.</p>
+			</div>
+		</section>
+		
+		<!-- SECCIÓN DE FORMULARIO DE CONTACTO  -->
+		<section class="container py-5 ">
+			<div class="row ">
+				<div class="col-lg-6 ">
+					
+					<form action="/data" id="Formulario" method="get">
+						<div class="my-3">
+							<label for="Nombre">Nombre:</label>
+							<input type="text" name="nombre" class="form-control" id="Nombre" placeholder="Ingresa tu nombre" required>
+						</div>
+						<div class="my-3">
+							<label for="Correo">Correo:</label>
+							<input type="email" name="correo" class="form-control" id="Correo" placeholder="Enter email" required>
+						</div>
+						<div class="mb-3">
+							<label for="Tel">Telefono:</label>
+							<input type="tel" name="telefono" class="form-control" id="Tel" placeholder="Telefono (no es un campo obligatorio)">
+						</div>
+
+						<div class="mb-3">
+							<label for="Mensaje">Mensaje:</label>
+							<textarea name="mensaje" class="form-control" placeholder="Mensaje" id="Mensaje" required></textarea>
+						</div>
+
+						<button type="submit" class="boton btn btn-primary" name="enviar">
+							Enviar
+						</button>
+					</form>
+				</div>
+				<div class="col-lg-6" class="text-center">
+					<img src="/FotoI.png" alt="" class="img-responsive " style="width: 80%;">
+				</div>
+			</div>
+		</section>
+
+		<!-- MODAL DE CONFIRMACIÓN -->
+		<div class="modal fade" id="modalFunciona" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Enviado correctamente
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">A continuación se abrirá su aplicación de correo para envíar la información</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</main><script>
+		window.addEventListener("DOMContentLoaded", (event) => {
+			const formulario = document.getElementById("Formulario");
+			formulario.addEventListener("submit", (event) => {
+				event.preventDefault();
+
+				const formData = new FormData(formulario);
+				var data = {};
+				for (var pair of formData.entries()) {
+					data = {...data, [pair[0]] : pair[1]}    				
+  				}			
+
+				const referencia =
+					"mailto:claudiamj.9@gmail.com?subject=Quiero%20contactar%20con%20el%20artista&body=Nombre:%20" +
+					data.nombre +
+					"%0D%0ACorreo:%20" +
+					data.correo +
+					"%0D%0ATelefono:%20" +
+					data.tel +
+					"%0D%0AMensaje:%20" +
+					data.mensaje;
+
+				const enlace = document.createElement("a");
+				enlace.href = referencia;
+				enlace.click();
+
+				const modalConfirmacion = new bootstrap.Modal(document.getElementById("modalFunciona"), {});				
+				modalConfirmacion.show();
+			});
+		});
+	</script>
+		<script src="/js/Galeria.js"> </script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+		
+	</body>
+
+	<footer class="bg-1">
+			<section class="container text-start bg-1"> 
+				<div style="padding-top:50px; color:#f4f4f4;">
+					<div class="container">
+						<div class="row row-cols-4">
+						  <div class="col">
+							<a style="color: #f4f4f4" href="/">Inicio</a>
+							<br><a style="color: #f4f4f4" href="sobremi">Sobre Mi</a>
+							<br><a style="color: #f4f4f4" href="contacto">Contacto</a>
+						  </div>
+						  <div class="col">
+							<br><a style="color: #f4f4f4" href="fotografia">Fotografía</a>
+							<br><a style="color: #f4f4f4" href="video">Vídeo</a>
+						  </div>
+						  <div class="col"></div>
+						  <div class="col text-end">
+							<a href="#"><img style="padding:10px; width:90px;" src="/LogoN.png"></a></div>
+						</div>
+					  </div>
+				</div>
+				<div class="container text-end">
+					<p style="color: #f4f4f4; padding-bottom:50px; padding-top: 50px;">©2022 Claudia MJ. All Rights Reserved</p>
+				</div>
+			</section>
+	  </footer>
+
+
+</html>
